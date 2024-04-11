@@ -1,10 +1,16 @@
+import Nav from "@/components/Nav/Nav";
 import NavContainer from "@/components/Nav/NavContainer";
 import UserDrawerContainer from "@/components/UserDrawer/UserDrawerContainer";
+import AppContextProvider from "@/global state management/AppContextProvider";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-describe("Nav show and functions", () => {
+describe("Nav shows and functions", () => {
   beforeEach(() => {
-    render(<NavContainer />);
+    render(
+      <AppContextProvider>
+        <NavContainer/>
+      </AppContextProvider>
+    );
   });
 
   it("renders the nav child component", () => {
@@ -23,20 +29,22 @@ describe("Nav show and functions", () => {
 
     expect(drawer).toHaveAttribute("aria-hidden", "false");
   });
+});
 
+describe('User Icon', () => {
   it("displays the user icon when a user is logged in", () => {
     const isLoggedIn = true;
 
-    render(<NavContainer isLoggedIn={isLoggedIn} />);
+    render(<Nav isLoggedIn={isLoggedIn} />);
 
-    expect(screen.getByTestId("user-icon")).toBeInTheDocument();
+    expect(screen.getByTestId("AccountCircleIcon")).toBeInTheDocument();
   });
 
   it("does not display the user icon when a user is not logged in", () => {
     const isLoggedIn = false;
 
-    render(<NavContainer isLoggedIn={isLoggedIn} />);
+    render(<Nav isLoggedIn={isLoggedIn} />);
 
-    expect(screen.queryByTestId("user-icon")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("AccountCircleIcon")).not.toBeInTheDocument();
   });
-});
+})
