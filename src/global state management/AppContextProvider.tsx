@@ -2,7 +2,7 @@
 import { useReducer, useMemo } from "react";
 import { AppState } from "../../interfaces/GlobalState";
 import { AppContext } from "./AppContext";
-import { appReducer } from "./AppReducer";
+import { appReducer } from "./appReducer";
 
 const initialState: AppState = {
     user: null,
