@@ -13,14 +13,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useState } from 'react';
 
-const Nav = () => {
+const Nav = ({isLoggedIn}:NavProps) => {
   
-  const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -45,7 +40,7 @@ const Nav = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           In the Pantry
         </Typography>
-        {auth && (
+        {isLoggedIn && (
           <div>
             <IconButton
               size="large"

@@ -1,0 +1,3 @@
+interface NavProps{
+    isLoggedIn:boolean;
+}
