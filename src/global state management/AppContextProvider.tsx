@@ -1,3 +1,4 @@
+'use client'
 import { useReducer, useMemo } from "react";
 import { AppState } from "../../interfaces/GlobalState";
 import { AppContext } from "./AppContext";

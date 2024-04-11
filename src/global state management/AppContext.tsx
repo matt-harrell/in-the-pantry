@@ -1,3 +1,4 @@
+'use client'
 import { createContext } from 'react';
 import { AppContextValue } from '../../interfaces/GlobalState';
 
