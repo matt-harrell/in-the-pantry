@@ -9,6 +9,7 @@ describe("Nav shows and functions", () => {
     render(
       <AppContextProvider>
         <NavContainer/>
+        <UserDrawerContainer/>
       </AppContextProvider>
     );
   });
@@ -18,24 +19,24 @@ describe("Nav shows and functions", () => {
   });
 
   it("UserDrawer appears when user clicks on icon", () => {
-    render(<UserDrawerContainer />);
 
-    const hamburgerButton = screen.getByTestId("hamburger-button");
-    const drawer = screen.getByTestId("drawer");
-
-    expect(drawer).toHaveAttribute("aria-hidden", "true");
+    const hamburgerButton = screen.getByLabelText("menu");
 
     fireEvent.click(hamburgerButton);
+    
+    const drawer = screen.getByTestId("drawer");
 
-    expect(drawer).toHaveAttribute("aria-hidden", "false");
+    expect(drawer).toBeInTheDocument();
   });
 });
 
 describe('User Icon', () => {
+  const handleHamburgerClick = () => {};
   it("displays the user icon when a user is logged in", () => {
     const isLoggedIn = true;
+    
 
-    render(<Nav isLoggedIn={isLoggedIn} />);
+    render(<Nav isLoggedIn={isLoggedIn} handleHamburgerClick={handleHamburgerClick}/>);
 
     expect(screen.getByTestId("AccountCircleIcon")).toBeInTheDocument();
   });
@@ -43,7 +44,7 @@ describe('User Icon', () => {
   it("does not display the user icon when a user is not logged in", () => {
     const isLoggedIn = false;
 
-    render(<Nav isLoggedIn={isLoggedIn} />);
+    render(<Nav isLoggedIn={isLoggedIn} handleHamburgerClick={handleHamburgerClick}/>);
 
     expect(screen.queryByTestId("AccountCircleIcon")).not.toBeInTheDocument();
   });
