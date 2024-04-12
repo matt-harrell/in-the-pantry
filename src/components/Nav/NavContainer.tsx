@@ -6,8 +6,6 @@ import useAppDispatch from '@/global state management/useAppDispatch';
 
 const NavContainer = () => {
   const { isLoggedIn } = useAppState();
-  const dispatch = useAppDispatch;
-
 
   return (
     <Nav isLoggedIn={isLoggedIn}/>
