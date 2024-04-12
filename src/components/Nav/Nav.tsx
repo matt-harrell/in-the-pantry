@@ -10,7 +10,7 @@ import Menu from '@mui/material/Menu';
 import { useState } from 'react';
 import { NavProps } from '../../../interfaces/Nav';
 
-const Nav = ({isLoggedIn}:NavProps) => {
+const Nav = ({isLoggedIn,handleHamburgerClick}:NavProps) => {
   
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -31,6 +31,7 @@ const Nav = ({isLoggedIn}:NavProps) => {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
+          onClick={handleHamburgerClick}
         >
           <MenuIcon />
         </IconButton>

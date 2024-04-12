@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from "@/theme";
 import NavContainer from "@/components/Nav/NavContainer";
 import AppContextProvider from "@/global state management/AppContextProvider";
+import UserDrawerContainer from "@/components/UserDrawer/UserDrawerContainer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +24,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <AppContextProvider>
               <NavContainer/>
+              <UserDrawerContainer/>
               {children}
             </AppContextProvider>
           </ThemeProvider>
