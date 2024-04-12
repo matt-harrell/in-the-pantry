@@ -6,7 +6,10 @@ import { appReducer } from "./appReducer";
 
 const initialState: AppState = {
     user: null,
-    isLoggedIn:false
+    isLoggedIn:false,
+    Drawer:{
+      isOpen:false,
+    }
   };
   
   interface AppContextProviderProps {
