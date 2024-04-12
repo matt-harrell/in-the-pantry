@@ -1,3 +1,3 @@
-interface NavProps{
+export interface NavProps{
     isLoggedIn:boolean;
 }
