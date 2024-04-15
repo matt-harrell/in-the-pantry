@@ -7,6 +7,7 @@ import { APP_ACTIONS } from '@/global state management/appReducer';
 
 const UserDrawerContainer = () => {
   const { isOpen } = useAppState().Drawer;
+  const { isLoggedIn } = useAppState();
   const dispatch = useAppDispatch();
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -20,6 +21,7 @@ const UserDrawerContainer = () => {
   return (
     <UserDrawer 
       isOpen={isOpen}
+      isLoggedIn={isLoggedIn}
       toggleDrawer={toggleDrawer}
     />
   )
