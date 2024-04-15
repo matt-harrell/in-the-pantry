@@ -18,7 +18,6 @@ const UserDrawerContainer = () => {
   };
 
   return (
-    // TODO
     <UserDrawer 
       isOpen={isOpen}
       toggleDrawer={toggleDrawer}
