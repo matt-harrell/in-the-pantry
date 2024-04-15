@@ -6,6 +6,7 @@ import theme from "@/theme";
 import NavContainer from "@/components/Nav/NavContainer";
 import AppContextProvider from "@/global state management/AppContextProvider";
 import UserDrawerContainer from "@/components/UserDrawer/UserDrawerContainer";
+import { CssBaseline } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <AppContextProvider>
               <NavContainer/>
               <UserDrawerContainer/>
