@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { UserDrawerProps } from '../../../interfaces/UserDrawer';
+import SignInContainer from '../SignIn/SignInContainer';
 
 const UserDrawer = ({isOpen,isLoggedIn,toggleDrawer, user}:UserDrawerProps) => {
 
@@ -14,15 +15,16 @@ const UserDrawer = ({isOpen,isLoggedIn,toggleDrawer, user}:UserDrawerProps) => {
     );
   } else {
     DrawerContent = (
-      <Typography variant='h6' component='p' sx={{ textAlign:'center'}}>Sign In with any of the following methods</Typography>
+      <Box sx={{ width: 250, px:1, pt:2 }} role="presentation" onClick={toggleDrawer(false)}>
+        <Typography variant='h6' component='p' sx={{ textAlign:'center'}}>Sign In with any of the following methods</Typography>
+        <SignInContainer/>
+      </Box>
     );
   }
 
   return (
       <Drawer open={isOpen} onClose={toggleDrawer(false)} data-testid="drawer">
-        <Box sx={{ width: 250, px:1, pt:2 }} role="presentation" onClick={toggleDrawer(false)}>
-          {DrawerContent}
-        </Box>
+        {DrawerContent}
       </Drawer>
   );
 }
